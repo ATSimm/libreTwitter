@@ -1,4 +1,5 @@
 # libreTwitter
+
 COMP10050-Assignment2-2022  
 
 TO:DO
@@ -17,4 +18,3 @@ The function unfollow is implemented correctly (5%)
 The function delete is implemented correctly (5%)
 The functions endTurn and endTwitter are implemented correctly (5%)
 The news Feed is implemented as a linked list (stack). (20%)
-

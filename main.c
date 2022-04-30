@@ -34,6 +34,9 @@ int main(){
   int counter = 0;
   while(!endOfTwt){
     int currentUser = counter % numUsers;
+    if(strcmp(strcpy(username[currentUser],NULL) == 0){
+      strcpy(username[currentUser],generateUsername());
+    }
     printf("\nWelcome %s. Type /help for a list of commands",username[currentUser]);
     endOfTwt = true;
   }

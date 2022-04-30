@@ -13,7 +13,6 @@ void insert(ListNodePtr *sPtr, char value);
 char delete (ListNodePtr *sPtr, char value);
 int isEmpty(ListNodePtr sPtr);
 void printList(ListNodePtr currentPtr);
-void instructions(void);
 
 ListNodePtr startPtr = NULL;
 

@@ -10,5 +10,28 @@ int getNumUsers(){
 }
 
 char generateUsername(){
-    
+    file *fp;
+    fp = fopen("usernames.txt", "r");
+    char n;
+
+    int randName;
+    srand(time(0));
+    randName = rand() % 86000; //length of usernames.txt
+
+    if ( file != NULL )
+{
+    char line[86000];
+    while (fgets(line, sizeof line, file) != NULL) /* read a line */
+    {
+        if (count == randName)
+        {
+            username = n;
+        }
+        else
+        {
+            count++;
+        }
+    }
+
+    fclose(fp);
 }

@@ -22,8 +22,8 @@ int main(){
   printf("   ╚═╝    ╚══╝╚══╝ ╚══════╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝ \n");
 
   printf("\nBy Aiden Simmons and Rohan Bhattacharya\n\n\n\nPress enter to continue.\n");
-  char input;
-  scanf("%c",&input);
+  char pl;
+  scanf("%c",&pl);
   system("clear");
 
   //if no users, prompt to create user
@@ -41,5 +41,46 @@ int main(){
 /endtwitter                                     |
 =================================================
 */
-  scanf("%c",&input); 
+int looper = 1;
+char input[50] = "";
+
+//Introduction to program
+printf("Type /help for a list of commands.\n");
+
+/*
+infinite loop to keep users in program such that they are
+able to input several commands in one instance of the program.
+*/
+    while(looper == 1)
+    {
+
+      scanf("%s", input); // User input
+
+      if(strcmp(input,"/help") == 0) // Did user type /help?
+      {
+        printf("\n\t/help - Lists all commands.\n");
+        printf("\t/rand - Generates lists of random numbers to use.\n");
+        printf("\t/cost - Calculates the cost for a given number of games.\n");
+        printf("\t/prizes - Outputs the list of prizes.\n\n");
+      }
+
+      else if(strcmp(input,"/rand") == 0) // Did user type /rand?
+      {
+        
+      }
+
+      else if(strcmp(input,"/cost") == 0) // Did user type /cost?
+      {
+        
+      }
+
+      else if(strcmp(input,"/prizes") == 0) // Did user type /prizes?
+      {
+       
+      }
+      else // Did user have a misinput?
+      {
+       
+      }
+    }
 }

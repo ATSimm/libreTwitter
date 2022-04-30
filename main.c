@@ -3,16 +3,8 @@
 #include <string.h>
 #include <stdbool.h>
 #include "userManage.c"
-struct tweet{
-  int id;
-  char author[25];
-  char content[280];
-};
-struct user{
-  char username[25];
-  int followers;
-  int following;
-};
+#include "structres.c"
+
 int numUsers;
 
 int main(){

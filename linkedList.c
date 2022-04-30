@@ -1,22 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 struct listNode {
-  char data;
+  char data[280];
   struct listNode *nextPtr;
 };
 
 typedef struct listNode ListNode;
 typedef ListNode *ListNodePtr;
 
-void insert(ListNodePtr *sPtr, char value);
-char delete (ListNodePtr *sPtr, char value);
+void insert(ListNodePtr *sPtr, char value[280]);
+char delete (ListNodePtr *sPtr, char value[280]);
 int isEmpty(ListNodePtr sPtr);
 void printList(ListNodePtr currentPtr);
 
 ListNodePtr startPtr = NULL;
 
-void insert(ListNodePtr *sPtr, char value) {
+void insert(ListNodePtr *sPtr, char value[280]) {
   ListNodePtr newPtr = malloc(sizeof(ListNode));
   if (newPtr != NULL) {
     newPtr->data = value;
@@ -38,18 +38,17 @@ void insert(ListNodePtr *sPtr, char value) {
       newPtr->nextPtr = currentPtr;
     }
   } else {
-    printf("%c not inserted. No memory available.\n", value);
+    printf("%s not inserted. No memory available.\n", value);
   }
 }
 
-char delete (ListNodePtr *sPtr, char value) {
-  if (value == (*sPtr)->data) {
+char delete (ListNodePtr *sPtr, char value[280]) {
+  if(strcmp(value,(*sPtr)->data)) == 0){
     ListNodePtr tempPtr = *sPtr;
     *sPtr = (*sPtr)->nextPtr;
     free(tempPtr);
     return value;
   }
-
   else {
     ListNodePtr previousPtr = *sPtr;
     ListNodePtr currentPtr = (*sPtr)->nextPtr;
@@ -79,7 +78,7 @@ void printList(ListNodePtr currentPtr) {
     printf("The list is:\n");
 
     while (currentPtr != NULL) {
-      printf("%c --> ", currentPtr->data);
+      printf("%s --> ", currentPtr->data);
       currentPtr = currentPtr->nextPtr;
     }
 

@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "linkedList.c"
 #include "structures.c"
 #include "hash.c"
 
-void postTweet(){
+void postTweet(int user, char *content){
     struct tweet post;
     post.id = hash();
-    post.author = "";
-    post.content = "";
+    post.author = user;
+    post.content = content;
+    insert();
 }

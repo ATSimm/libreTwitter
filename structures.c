@@ -1,10 +1,11 @@
 struct tweet{
   long id;
-  char author[25];
+  int author;
   char content[280];
 };
 struct user{
   char username[25];
+  int id;
   int followers;
   int following;
 };

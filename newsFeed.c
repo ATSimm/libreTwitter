@@ -2,10 +2,10 @@
 #include <stdlib.h>
 
 void getNewsFeed(){
-    openFile();
-
+    openFile("tweets.csv");
+    
    //if less than 10 tweets do this
 
    //else normal
-   
+
 }

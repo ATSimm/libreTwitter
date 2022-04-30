@@ -4,7 +4,6 @@
 #include <stdbool.h>
 #include "userManage.c"
 #include "structres.c"
-
 int numUsers;
 
 int main(){

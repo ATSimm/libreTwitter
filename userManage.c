@@ -19,20 +19,19 @@ char generateUsername(){
 
     int randName;
     srand(time(0));
-    randName = rand() % 86000; //length of usernames.txt
+    randName = rand() % 86648; //length of usernames.txt
     int count = 0;
     char username[25];
     if (fp != NULL )
 {
-    char line[86000];
+    char line[86648];
     while (fgets(line, sizeof line, fp) != NULL) /* read a line */
     {
-        if (count == randName)
-        {
+        if (count == randName){
             strcpy(username,n);
+            return username;
         }
-        else
-        {
+        else{
             count++;
         }
     }

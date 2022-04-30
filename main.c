@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 struct tweet{
   int id;
   char author[25];
@@ -37,7 +37,7 @@ int main(){
 /delete                                         |
     Display last 5 tweets with (1),(2),...      |
 /feed                                           |
-/endturn                                        |     
+/endturn                                        |
 /endtwitter                                     |
 =================================================
 */
@@ -66,21 +66,21 @@ able to input several commands in one instance of the program.
 
       else if(strcmp(input,"/rand") == 0) // Did user type /rand?
       {
-        
+
       }
 
       else if(strcmp(input,"/cost") == 0) // Did user type /cost?
       {
-        
+
       }
 
       else if(strcmp(input,"/prizes") == 0) // Did user type /prizes?
       {
-       
+
       }
       else // Did user have a misinput?
       {
-       
+
       }
     }
 }

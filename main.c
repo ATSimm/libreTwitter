@@ -41,7 +41,6 @@ int main(){
     endOfTwt = true;
   }
 
-
   //if no users, prompt to create user
   //else welcome first user, type what u wanna do.
 

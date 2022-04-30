@@ -6,8 +6,8 @@ int getNumUsers(){
     printf("How many users would you like to have?");
     scanf("%d",&numUsers);
     return numUsers;
-}
-
+}/*
+/*
 int main(){
 
     int looper = 1;
@@ -21,7 +21,7 @@ printf("Welcome %s.Type /help for a list of commands.\n",currentUser);
 /*
 infinite loop to keep users in program such that they are
 able to input several commands in one instance of the program.
-*/
+
     while(looper == 1)
     {
 
@@ -58,3 +58,4 @@ able to input several commands in one instance of the program.
       }
     }
 }
+*/

@@ -26,6 +26,20 @@ int main(){
   scanf("%c",&input);
   system("clear");
 
-  printf("HELLO\n");
-  scanf("%c",&input);
-  }
+  //if no users, prompt to create user
+  //else welcome first user, type what u wanna do.
+
+/*
+=================================================
+/follow "username"                              |
+/unfollow "username"                            |
+/post                                           |
+/delete                                         |
+    Display last 5 tweets with (1),(2),...      |
+/feed                                           |
+/endturn                                        |     
+/endtwitter                                     |
+=================================================
+*/
+  scanf("%c",&input); 
+}

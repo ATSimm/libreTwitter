@@ -3,24 +3,25 @@
 #include <string.h>
 
 
-void openFile(){
-    FILE *fp = fopen("tweets.csv", "r");
+void openFile(char fileName[50]){
+    
+    FILE *fp = fopen(fileName, "r");
 
     if (fp == NULL){
-        perror ("No Tweets. Unable to open file.");
+        perror ("Unable to open file.");
         exit(1);
     }
 
-    char line[240];
+    char line[280];
 
     while (fgets(line, sizeof(line), fp)){
-        char *tweets;
+        char *charPointer;
         
-        tweets = strtok(line, ",");
+        charPointer = strtok(line, ",");
 
-        while (tweets != NULL){
-            printf("%s", tweets);
-            tweets = strtok(NULL, ",");
+        while (charPointer != NULL){
+            printf("%s", charPointer);
+            charPointer = strtok(NULL, ",");
         }
         printf("\n");
     } 

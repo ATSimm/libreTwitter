@@ -18,4 +18,5 @@ int main(){
   scanf("%c",&input);
 
 
+
   }

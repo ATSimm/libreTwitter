@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "userManage.c"
-#include "structres.c"
+#include "structures.c"
 int numUsers;
 
 int main(){
@@ -25,27 +25,10 @@ int main(){
   int counter = 0;
   while(!endOfTwt){
     int currentUser = counter % numUsers;
-    if(strcmp(strcpy(username[currentUser],NULL) == 0){
+    if(strcmp(username[currentUser],NULL) == 0){
       strcpy(username[currentUser],generateUsername());
     }
     printf("\nWelcome %s. Type /help for a list of commands",username[currentUser]);
     endOfTwt = true;
   }
-
-  //if no users, prompt to create user
-  //else welcome first user, type what u wanna do.
-
-/*
-=================================================
-/follow "username"                              |
-/unfollow "username"                            |
-/post                                           |
-/delete                                         |
-    Display last 5 tweets with (1),(2),...      |
-/feed                                           |
-/endturn                                        |
-/endtwitter                                     |
-=================================================
-*/
-
 }

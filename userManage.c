@@ -38,3 +38,4 @@ char generateUsername(){
 
     fclose(fp);
 }
+}

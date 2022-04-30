@@ -1,11 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "openFile.c"
+//#include "linkedList.c"
 
 void getNewsFeed(){
     openFile("tweets.csv");
-    
-   //if less than 10 tweets do this
+    char line[280];
+    int counter = 0;
+    while (fgets(line, sizeof(line), fp) && counter <= 10){
+        counter++;
+        char *charPointer;
+        charPointer = strtok(line, ",");
+        while (charPointer != NULL){
+            printf("%s", charPointer);
+            charPointer = strtok(NULL, ",");
+        }
+        printf("\n");
+    }
+}
 
-   //else normal
-
+int main(){
+  getNewsFeed();
 }

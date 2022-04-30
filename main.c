@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "openFile.c"
-
+#include "userManage.c"
 struct tweet{
   int id;
   char author[25];
@@ -13,6 +13,7 @@ struct user{
   int followers;
   int following;
 };
+int numUsers;
 
 int main(){
   system("clear");
@@ -27,7 +28,7 @@ int main(){
   char pl;
   scanf("%c",&pl);
   system("clear");
-
+  numUsers = getNumUsers();
   //if no users, prompt to create user
   //else welcome first user, type what u wanna do.
 
@@ -43,53 +44,7 @@ int main(){
 /endtwitter                                     |
 =================================================
 */
-int looper = 1;
-char input[50] = "";
-char currentUser[25] = "rohan";
-//currentUser = usernames.txt fetch -> struct username
 
-//Introduction to program
-printf("Welcome %s.Type /help for a list of commands.\n",currentUser);
-
-/*
-infinite loop to keep users in program such that they are
-able to input several commands in one instance of the program.
-*/
-    while(looper == 1)
-    {
-
-      scanf("%s", input); // User input
-
-      if(strcmp(input,"/help") == 0) // Did user type /help?
-      {
-        printf("\n\t/help - Lists all commands.\n");
-        printf("\t/follow username - Follows the username provided.\n");
-        printf("\t/unfollow username - Unfollows the username provided.\n");
-        printf("\t/post - Allows you to post a tweet.\n");
-        printf("\t/delete - Allows you to delete a tweet.\n");
-        printf("\t/feed - View your feed.\n");
-        printf("\t/endTurn - View your feed.\n");
-      }
-
-      else if(strcmp(input,"/rand") == 0) // Did user type /rand?
-      {
-
-      }
-
-      else if(strcmp(input,"/cost") == 0) // Did user type /cost?
-      {
-
-      }
-
-      else if(strcmp(input,"/prizes") == 0) // Did user type /prizes?
-      {
-
-      }
-      else // Did user have a misinput?
-      {
-
-      }
-    }
 }
 
 

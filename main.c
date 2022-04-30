@@ -6,6 +6,12 @@ struct tweet{
   char author[25];
   char content[280];
 };
+struct user{
+  char username[25];
+  int followers;
+  int following;
+};
+
 int main(){
   system("clear");
   printf("████████╗██╗    ██╗███████╗███████╗████████╗███████╗██████╗ \n");

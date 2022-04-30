@@ -1,7 +1,6 @@
 # libreTwitter
 COMP10050-Assignment2-2022  
 
-
 TO:DO
 
 A grade will be given according to the following criteria

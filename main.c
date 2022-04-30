@@ -1,5 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+struct tweet{
+  int id;
+  char author[25];
+  char content[280];
+};
 int main(){
   system("clear");
   printf("████████╗██╗    ██╗███████╗███████╗████████╗███████╗██████╗ \n");
@@ -16,7 +22,4 @@ int main(){
 
   printf("HELLO\n");
   scanf("%c",&input);
-
-
-
   }

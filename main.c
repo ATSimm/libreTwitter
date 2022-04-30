@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "userManage.c"
 struct tweet{
   int id;
@@ -28,8 +29,16 @@ int main(){
   scanf("%c",&pl);
   system("clear");
   numUsers = getNumUsers();
+  char username[numUsers][25];
+  bool endOfTwt = false;
+  int counter = 0;
+  while(!endOfTwt){
+    int currentUser = counter % numUsers;
+    printf("\nWelcome %s. Type /help for a list of commands",username[currentUser]);
+    endOfTwt = true;
+  }
 
-  
+
   //if no users, prompt to create user
   //else welcome first user, type what u wanna do.
 

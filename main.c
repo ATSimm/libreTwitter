@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "openFile.c"
 #include "userManage.c"
 struct tweet{
   int id;
@@ -29,6 +28,8 @@ int main(){
   scanf("%c",&pl);
   system("clear");
   numUsers = getNumUsers();
+
+  
   //if no users, prompt to create user
   //else welcome first user, type what u wanna do.
 

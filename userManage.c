@@ -13,7 +13,7 @@ int getNumUsers(){
     return numUsers;
 }
 
-char generateUsername(){
+void generateUsername(){
     fp = fopen("usernames.txt", "r");
     char n[25];
 
@@ -22,6 +22,7 @@ char generateUsername(){
     randName = rand() % 86648; //length of usernames.txt
     int count = 0;
     char username[25];
+    char *ptr = username;
     if (fp != NULL )
 {
     char line[86648];
@@ -29,7 +30,7 @@ char generateUsername(){
     {
         if (count == randName){
             strcpy(username,n);
-            return username;
+            return ptr;
         }
         else{
             count++;

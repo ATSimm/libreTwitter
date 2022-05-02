@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 struct node{
     int id;
@@ -10,7 +11,7 @@ struct node{
 
 struct node *start = NULL;
 
-void insertBegin(int authorID, char *content);
+void insertBegin(int x, char *y);
 void insertEnd(int);
 void traverse();
 void deleteBegin();
@@ -22,7 +23,7 @@ void insertBegin(int x, char *y){
     struct node *t;
     t = (struct node*)malloc(sizeof(struct node));
     t->authorID = x;
-    t->content = y;
+    strcpy(t->content,y);
     counter++;
     if (start == NULL) {
         start = t;
@@ -40,7 +41,7 @@ void traverse() {
         printf("Linked list is empty.\n") ;
         return ;
     }
-    printf("There are %d elements in linked list.\n", count) ;
+    printf("There are %d elements in linked list.\n", counter) ;
     while (t->next != NULL) {
         printf("%s\n", t->content) ;
         t = t->next ;

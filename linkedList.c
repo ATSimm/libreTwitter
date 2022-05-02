@@ -43,7 +43,8 @@ void traverse() {
     }
     printf("There are %d elements in linked list.\n", counter) ;
     while (t->next != NULL) {
-        printf("%s\n", t->content) ;
+        printf("%s\n", t->authorID);
+        printf("%s\n", t->content);
         t = t->next ;
     }
     printf("%s\n", t->content); // Print last node

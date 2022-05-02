@@ -10,5 +10,5 @@ void postTweet(int user, char *content){
     post.id = hash();
     post.author = user;
     post.content = content;
-    insert();
+    //implement a new linked list push for the tweet
 }

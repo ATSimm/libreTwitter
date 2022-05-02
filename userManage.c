@@ -5,7 +5,6 @@
 #include <time.h>
 #include <string.h>
 
-FILE *fp;
 int getNumUsers(){
     int numUsers;
     printf("How many users would you like to have?\n");
@@ -13,29 +12,22 @@ int getNumUsers(){
     return numUsers;
 }
 
-char *generateUsername(){
-    fp = fopen("usernames.txt", "r");
-    char n[25];
-
-    int randName;
-    srand(time(0));
-    randName = rand() % 86648; //length of usernames.txt
+void generateUsername(){
+    FILE *textfile;
+    char line[50];
+    textfile = fopen("usernames.txt","r");
+    if(textfile == NULL)
+      perror("FNF error");
+    int num = 34658; //Make this random.
     int count = 0;
-    char *username[25];
-    if (fp != NULL )
-    {
-        char line[86648];
-        while (fgets(line, sizeof line, fp) != NULL) /* read a line */
-        {
-            if (count == randName){
-                strcpy(username,n);
-                return username[count]; 
-            }
-            else{
-                count++;
-            }
-        }
-
-        fclose(fp);
+    while(fgets(line, 50, textfile)){
+      if(count == num){
+        printf("%s",line); //make this return a string
+        break;
+      }
+      else{
+        count++;
+      }
     }
+    fclose(textfile);
 }

@@ -13,7 +13,7 @@ int getNumUsers(){
     return numUsers;
 }
 
-void generateUsername(){
+char *generateUsername(){
     fp = fopen("usernames.txt", "r");
     char n[25];
 
@@ -21,22 +21,21 @@ void generateUsername(){
     srand(time(0));
     randName = rand() % 86648; //length of usernames.txt
     int count = 0;
-    char username[25];
-    char *ptr = username;
+    char *username[25];
     if (fp != NULL )
-{
-    char line[86648];
-    while (fgets(line, sizeof line, fp) != NULL) /* read a line */
     {
-        if (count == randName){
-            strcpy(username,n);
-            return ptr;
+        char line[86648];
+        while (fgets(line, sizeof line, fp) != NULL) /* read a line */
+        {
+            if (count == randName){
+                strcpy(username,n);
+                return username; 
+            }
+            else{
+                count++;
+            }
         }
-        else{
-            count++;
-        }
-    }
 
-    fclose(fp);
-}
+        fclose(fp);
+    }
 }

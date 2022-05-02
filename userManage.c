@@ -23,19 +23,19 @@ char *generateUsername(){
     int count = 0;
     char *username[25];
     if (fp != NULL )
-{
-    char line[86648];
-    while (fgets(line, sizeof line, fp) != NULL) /* read a line */
     {
-        if (count == randName){
-            strcpy(username,n);
-            return username; 
+        char line[86648];
+        while (fgets(line, sizeof line, fp) != NULL) /* read a line */
+        {
+            if (count == randName){
+                strcpy(username,n);
+                return username; 
+            }
+            else{
+                count++;
+            }
         }
-        else{
-            count++;
-        }
-    }
 
-    fclose(fp);
-}
+        fclose(fp);
+    }
 }

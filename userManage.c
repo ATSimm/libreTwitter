@@ -29,7 +29,7 @@ char *generateUsername(){
         {
             if (count == randName){
                 strcpy(username,n);
-                return username; 
+                return username[count]; 
             }
             else{
                 count++;

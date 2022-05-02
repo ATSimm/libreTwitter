@@ -29,6 +29,3 @@ void getNewsFeed(){
     }
 }
 
-int main(){
-  getNewsFeed();
-}

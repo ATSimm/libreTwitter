@@ -14,6 +14,7 @@ int getNumUsers(){
 
 char * generateUsername(){
     FILE *textfile;
+    char *username[25];
     char line[50];
     textfile = fopen("usernames.txt","r");
     if(textfile == NULL)
@@ -22,8 +23,13 @@ char * generateUsername(){
     int num = rand() % 86649; //Make this random.
     int count = 0;
     while(fgets(line, 50, textfile)){
+        break;
       if(count == num){
         printf("%s\n",line);
+
+        username[] = line;
+        return username[];
+
         break;
       }
       else{

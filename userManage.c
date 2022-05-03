@@ -23,9 +23,7 @@ char * generateUsername(){
     int count = 0;
     while(fgets(line, 50, textfile)){
       if(count == num){
-        char *rtnPtr = malloc(sizeof(line));
         printf("%s\n",line);
-        return rtnPtr;
         break;
       }
       else{

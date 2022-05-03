@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdbool.h>
 #include "userManage.c"
+#include "tweetManage.c"
 #include "structures.c"
 int numUsers;
 
@@ -15,6 +17,8 @@ int main(){
   printf("   ██║   ╚███╔███╔╝███████╗███████╗   ██║   ███████╗██║  ██║ \n");
   printf("   ╚═╝    ╚══╝╚══╝ ╚══════╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝ \n");
 
+
+  printf("Tweeter.\n\n\n");
   printf("\nBy Aiden Simmons and Rohan Bhattacharya\n\n\n\nPress enter to continue.\n");
   char pl;
   scanf("%c",&pl);
@@ -23,6 +27,13 @@ int main(){
   char username[numUsers][25];
   bool endOfTwt = false;
   int counter = 0;
+
+  //Track following.
+  bool followArr[numUsers][numUsers];
+  for(int i = 0; i< numUsers; i++){
+    followArr[i][i] = true;
+  }
+
   while(!endOfTwt){
     int currentUser = counter % numUsers;
     if(strcmp(username[currentUser],"") == 0){
@@ -30,6 +41,11 @@ int main(){
     }
     printf("\nWelcome %s. Type /help for a list of commands",username[currentUser]);
     counter++;
-    endOfTwt = true; //remove in the future
+
+    if(user wants to tweet){
+      char content[280] = "their content";
+      insert(currentUser, content, username[currentUser]);
+      printf("DONE");
+    }
   }
 }

@@ -41,11 +41,23 @@ int main(){
     }
     printf("\nWelcome %s. Type /help for a list of commands",username[currentUser]);
     counter++;
-
+    if(user wants to follow){
+      //print type the number of the user you want to follow
+      for(int i = 0; i< numUsers; i++){
+        if(strcmp(username[i],"") == 0){continue;}
+        else{printf("(%d)%s\n",i,username[i]);}
+      }
+      //scan their input
+      int input;
+      followArr[currentUser][input] = true; //copy this but false for unfollow
+    }
     if(user wants to tweet){
       char content[280] = "their content";
       insert(currentUser, content, username[currentUser]);
       printf("DONE");
+    }
+    if(user wants to delete){
+      followArr[currentUser][currentUser] = false;
     }
   }
 }

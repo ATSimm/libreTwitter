@@ -7,7 +7,7 @@
 int numUsers;
 
 int main(){
-  system("clear");
+
   printf("████████╗██╗    ██╗███████╗███████╗████████╗███████╗██████╗ \n");
   printf("╚══██╔══╝██║    ██║██╔════╝██╔════╝╚══██╔══╝██╔════╝██╔══██╗ \n");
   printf("   ██║   ██║ █╗ ██║█████╗  █████╗     ██║   █████╗  ██████╔╝ \n");
@@ -18,7 +18,7 @@ int main(){
   printf("\nBy Aiden Simmons and Rohan Bhattacharya\n\n\n\nPress enter to continue.\n");
   char pl;
   scanf("%c",&pl);
-  system("clear");
+
   numUsers = getNumUsers();
   char username[numUsers][25];
   bool endOfTwt = false;

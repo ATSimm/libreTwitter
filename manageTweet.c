@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "hash.h"
+#include "structures.h"
 
 struct node *start = NULL;
 

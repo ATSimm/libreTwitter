@@ -69,7 +69,7 @@ int main(){
       else if(strcmp(input,"/tweet") == 0){
           char content[280];
           gets(content);
-          postTweet(&currentUser,content,nameUser->username);
+          postTweet(currentUser,content,nameUser[currentUser].username);
       }
       else if(strcmp(input,"/showfollowing") == 0){
           for(int i = 0; i < numUsers; i++){

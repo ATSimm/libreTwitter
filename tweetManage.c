@@ -5,7 +5,7 @@
 #include "hash.c"
 struct node{
     char time[35];
-    int authorID; //make this literal string name
+    int authorID;
     char authorName[25];
     char content[280];
     struct node *next;

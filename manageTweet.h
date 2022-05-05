@@ -1,6 +1,6 @@
 #ifndef LIBRETWITTER_MANAGETWEET_H
 #define LIBRETWITTER_MANAGETWEET_H
-#endif //LIBRETWITTER_MANAGETWEET_H
+
 #define MAX_USERS 100
 
 typedef struct tweet{
@@ -15,3 +15,5 @@ typedef struct user{
 
 void postTweet(int id, char *content, char *authorName);
 void showFeed(struct user currentPoster, int numUsers);
+
+#endif //LIBRETWITTER_MANAGETWEET_H

@@ -41,7 +41,9 @@ int main(){
     int currentUser = counter % numUsers;
     printf("%c",username[currentUser][0]);
     if(username[currentUser][0] == '\0'){
+      
       char name[25];
+      printf("It appears you do not have a username! Please enter a username.");
       scanf("%s",name);
       strcpy(username[currentUser],name);
     }

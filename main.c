@@ -4,8 +4,6 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include "manageUser.h"
-#include "manageUser.c"
-#include "manageTweet.c"
 #include "manageTweet.h"
 #include "structures.h"
 int numUsers;
@@ -59,7 +57,7 @@ int main(){
           printf("\t\t/endTurn - Ends your turn.\n");
           printf("\t\t/endTwitter - End application.\n");
       }
-      else if(strcmp(input,"/follow") == 0){
+      else if(strcmp(input,"/follow") == 0){   //replace with function from manageUser
           printf("Enter the number of the user you would like to follow.\n");
           int checker = 0;
           for(int i = 0; i < numUsers ; i++){

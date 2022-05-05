@@ -36,7 +36,7 @@ void insert(int id, char *content, char *authorName){
     start = t;
 }
 
-void traverse(bool followArray[][], int currentUser, int numUsers){
+void traverse(bool **followArray, int currentUser, int numUsers){
 
     struct node *t ;
     t = start;

@@ -14,7 +14,7 @@ int getNumUsers(){
 
 char * generateUsername(){
     FILE *textfile;
-    char *username[25];
+    char username[25];
     char line[50];
     char ch;
     textfile = fopen("usernames.txt","r");
@@ -30,7 +30,7 @@ char * generateUsername(){
 
         int i = 0;
 
-        while (ch = fgetc(textfile) != E0F){
+        while ((ch = fgetc(textfile)) != '\n'){
             username[i] = ch;
             i++;
         }
@@ -42,5 +42,6 @@ char * generateUsername(){
       }
     }
     fclose(textfile);
-    return "";
+    char *rtnPtr = username;
+    return rtnPtr;
 }

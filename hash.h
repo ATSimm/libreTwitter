@@ -1,8 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#ifndef LIBRETWITTER_HASH_H
+#define LIBRETWITTER_HASH_H
 
-long hash(){
-  time_t t = time(NULL);
-  return t;
-}
+long hash();
+
+#endif //LIBRETWITTER_HASH_H

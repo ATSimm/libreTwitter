@@ -3,16 +3,6 @@
 #include <string.h>
 #include <stdbool.h>
 #include "hash.h"
-#include "structures.h"
-
-
-struct node{
-    char time[35];
-    int authorID;
-    char authorName[25];
-    char content[280];
-    struct node *next;
-};
 
 struct node *start = NULL;
 
@@ -36,7 +26,7 @@ void postTweet(int id, char *content, char *authorName){
     start = t;
 }
 
-void showFeed(struct user *currentPoster, int numUsers){
+void showFeed(struct user currentPoster, int numUsers){
 
     struct node *t ;
     t = start;

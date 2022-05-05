@@ -6,6 +6,7 @@
 #include "manageUser.h"
 #include "manageTweet.h"
 #include "structures.h"
+
 int numUsers;
 
 int main(){
@@ -23,7 +24,7 @@ int main(){
 
   numUsers = getNumUsers();
 
-  struct user nameUser[numUsers];
+  user nameUser[numUsers];
 
   bool endOfTwt = false;
   int counter = 0;
@@ -94,7 +95,7 @@ int main(){
           endTurnEvent = true;
       }
       else if(strcmp(input,"/viewfeed") == 0){
-        showFeed(&nameUser[currentUser],numUsers);
+        showFeed(nameUser[currentUser],numUsers);
       }
       else if(strcmp(input,"/endtwitter") == 0){
         endOfTwt = true;

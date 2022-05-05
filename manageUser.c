@@ -1,4 +1,5 @@
 #include "manageUser.h"
+
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
@@ -16,7 +17,7 @@ int getNumUsers(){
 void follow(numUsers){
     printf("Enter the number of the user you would like to follow.\n");
     int checker = 0;
-    for(int i = 0; i < numUsers ; i++){
+    for(int i = 0; i < numUsers; i++){
         if(nameUser[i].username[0] != '\0' && i != currentUser){
             printf("(%d) %s\n",i,nameUser[i].username);
             checker = 1;
@@ -34,5 +35,21 @@ void follow(numUsers){
 }
 
 void unfollow(){
-    
+    printf("Enter the number of user you would like to unfollow.\n");
+    int checker = 0;
+    for(int i = 0; i < numUser; i++){
+        if(nameUser[i].username[1] != '\0' && i != currentUser){
+            printf("(%d) %s\n",i,nameUser[i].username);
+            checker = 1;
+        }
+    }
+    if(checker == 0){
+        printf("No users to unfollow.\n");
+    }
+
+    else{
+        int followRemove;
+        scanf("%d", &followRemove);
+        nameUser[currentUser.following[followAdd] = 0;
+    }
 }

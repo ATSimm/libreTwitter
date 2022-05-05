@@ -5,7 +5,8 @@
 #include <stdbool.h>
 #include "manageUser.h"
 #include "manageUser.c"
-//#include "tweetManage.c"
+#include "manageTweet.c"
+#include "manageTweet.h"
 #include "structures.h"
 int numUsers;
 
@@ -23,29 +24,24 @@ int main(){
   scanf("%c",&pl);
 
   numUsers = getNumUsers();
-  char username[numUsers][25];
+
+  struct user nameUser[numUsers];
+
   bool endOfTwt = false;
   int counter = 0;
-  int followingArr[numUsers][numUsers];
   for(int i = 0; i < numUsers; i++){
-      followingArr[i][i] = 1;
-  }
-
-  for(int i = 0 ; i < numUsers; i++){
-    for(int j = 0 ; j < 25 ; j++){
-      username[i][j] = '\0';
-    }
+    strcpy(nameUser[i].username,"");
   }
   while(!endOfTwt){
     bool endTurnEvent = false;
     int currentUser = counter % numUsers;
-    if(username[currentUser][0] == '\0'){
+    if(strcmp(nameUser[currentUser].username,"")==0){
       char name[25];
       printf("It appears you do not have a username! Please enter a username.\n");
       scanf("%s",name);
-      strcpy(username[currentUser],name);
+      strcpy(nameUser[currentUser].username,name);
     }
-    printf("\nWelcome %s. Type /help for a list of commands.\n",username[currentUser]);
+    printf("\nWelcome %s. Type /help for a list of commands.\n",nameUser[currentUser].username);
 
     while(!endTurnEvent){
       char input[25] = "0";
@@ -67,8 +63,8 @@ int main(){
           printf("Enter the number of the user you would like to follow.\n");
           int checker = 0;
           for(int i = 0; i < numUsers ; i++){
-            if(username[i][0] != '\0' && i != currentUser){
-              printf("(%d) %s\n",i,username[i]);
+            if(nameUser[i].username[0] != '\0' && i != currentUser){
+              printf("(%d) %s\n",i,nameUser[i].username);
               checker = 1;
             }
           }
@@ -77,16 +73,18 @@ int main(){
           }else{
             int followAdd;
             scanf("%d",&followAdd);
-            followingArr[currentUser][followAdd] = 1;
+            nameUser[currentUser].following[followAdd] = 1;
           }
       }
       else if(strcmp(input,"/tweet") == 0){
-          printf("");
+          char content[280];
+          gets(content);
+          postTweet(currentUser,content,nameUser->username);
       }
       else if(strcmp(input,"/showfollowing") == 0){
           for(int i = 0; i < numUsers; i++){
-            if(followingArr[currentUser][i] == 1 && i != currentUser){
-              printf("%s\n",username[i]);
+            if(nameUser[currentUser].following[i] == 1 && i != currentUser){
+              printf("%s\n",nameUser[i].username);
             }
           }
       }
@@ -98,10 +96,10 @@ int main(){
           endTurnEvent = true;
       }
       else if(strcmp(input,"/viewfeed") == 0){
-          printf("");
+        showFeed(nameUser[currentUser],numUsers);
       }
       else if(strcmp(input,"/endtwitter") == 0){
-          printf("");
+        endOfTwt = true;
       }
     }
 

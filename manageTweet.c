@@ -1,10 +1,10 @@
 #include "manageTweet.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include "hash.h"
+#include "structures.h"
 struct node{
     char time[35];
     int authorID;
@@ -17,7 +17,7 @@ struct node *start = NULL;
 
 int counter = 0;
 
-void insert(int id, char *content, char *authorName){
+void postTweet(int id, char *content, char *authorName){
     struct node *t;
     t = (struct node*)malloc(sizeof(struct node));
     long p = hash();
@@ -35,31 +35,30 @@ void insert(int id, char *content, char *authorName){
     start = t;
 }
 
-void traverse(bool **followArray, int currentUser, int numUsers){
+void showFeed(struct user currentPoster, int numUsers){
 
     struct node *t ;
     t = start;
     if (t == NULL) {
-        printf("Linked list is empty.\n") ;
+        printf("No tweets.\n");
         return ;
     }
-    printf("There are %d elements in linked list.\n", counter) ;
 
-    int counter = 0;
-    while (t->next != NULL || counter == 10) {
+    int count = 0;
+    while (t->next != NULL || count == 10) {
         for(int i = 0; i < numUsers; i++){
-            if(followArray[currentUser][i] && t->authorID == i){
+            if(currentPoster.following[i] && t->authorID == i){
                 printf("%s ", t->time);
                 printf("%s ", t->authorName);
                 printf("%s\n", t->content);
-                counter++;
+                count++;
             }
         }
         t = t->next;
     }
-    if(counter < 10){
+    if(count < 10){
         for(int i = 0; i < numUsers; i++){
-            if(followArray[currentUser][i] && t->authorID == i){
+            if(currentPoster.following[i] && t->authorID == i){
                 printf("%s ", t->time);
                 printf("%s ", t->authorName);
                 printf("%s\n", t->content);

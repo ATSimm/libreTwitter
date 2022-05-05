@@ -5,6 +5,5 @@ struct tweet{
 };
 struct user{
   char username[25];
-  int id;
-  int followers;
+  int following[100];
 };

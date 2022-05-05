@@ -12,16 +12,13 @@ include_directories(main.dSYM/Contents/Resources/DWARF)
 add_executable(libreTwitter
         main.dSYM/Contents/Resources/DWARF/main
         main.dSYM/Contents/Info.plist
-        followerManage.c
-        hash.c
-        linkedList.c
+        hash.h
         main.c
         names.txt
-        openFile.c
         README.md
-        structures.c
+        structures.h
         test.c
-        tweetManage.c
+        tweetManage.h
         tweets.csv
-        userManage.c
+        userManage.h
         usernames.txt)

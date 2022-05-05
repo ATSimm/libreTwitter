@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "hash.c"
+#include "hash.h"
 struct node{
     char time[35];
     int authorID;

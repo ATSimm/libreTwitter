@@ -3,9 +3,9 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdbool.h>
-#include "userManage.c"
-#include "tweetManage.c"
-#include "structures.c"
+#include "userManage.h"
+//#include "tweetManage.c"
+#include "structures.h"
 int numUsers;
 
 int main(){
@@ -20,10 +20,11 @@ int main(){
 
   printf("Tweeter.\n\n\n");
   printf("\nBy Aiden Simmons and Rohan Bhattacharya\n\n\n\nPress enter to continue.\n");
-  char pl;
+  /* char pl;
   scanf("%c",&pl);
 
-  numUsers = getNumUsers();
+  numUsers = getNumUsers(); */
+  numUsers = 5;
   char username[numUsers][25];
   bool endOfTwt = false;
   int counter = 0;
@@ -39,9 +40,10 @@ int main(){
     if(strcmp(username[currentUser],"") == 0){
       strcpy(username[currentUser],generateUsername());
     }
-    printf("\nWelcome %s. Type /help for a list of commands",username[currentUser]);
+    printf("\nWelcome %s. Type /help for a list of commands.\n",username[currentUser]);
     counter++;
-    if(user wants to follow){
+    endOfTwt = true;
+   /*  if(user wants to follow){
       //print type the number of the user you want to follow
       for(int i = 0; i< numUsers; i++){
         if(strcmp(username[i],"") == 0){continue;}
@@ -58,6 +60,6 @@ int main(){
     }
     if(user wants to delete){
       followArr[currentUser][currentUser] = false;
-    }
+    } */
   }
 }

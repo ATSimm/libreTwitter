@@ -1,11 +1,12 @@
 # ninja log v5
 3	28	1651585200995485052	CMakeFiles/libreTwitter.dir/structures.c.o	c631c91ab7f81548
-1	57	1651585201027000965	CMakeFiles/libreTwitter.dir/hash.c.o	65cb59d018529c7d
-3	60	1651585201030888912	CMakeFiles/libreTwitter.dir/test.c.o	bcb4e3b653baf6e6
-5	60	1651585201030759162	CMakeFiles/libreTwitter.dir/userManage.c.o	2dd9edc6c59684a7
+4	236	1651761714208709820	CMakeFiles/libreTwitter.dir/userManage.c.o	2dd9edc6c59684a7
+1	19	1651761786102688025	CMakeFiles/libreTwitter.dir/test.c.o	bcb4e3b653baf6e6
 2	61	1651585201031159828	CMakeFiles/libreTwitter.dir/openFile.c.o	727e5d32f3156fb2
-1	61	1651585201030922454	CMakeFiles/libreTwitter.dir/linkedList.c.o	ac71d2df0e23ca15
-1	64	1651585201035228191	CMakeFiles/libreTwitter.dir/main.c.o	3554533358d55a2d
 1	18	1651585218431652212	CMakeFiles/libreTwitter.dir/followerManage.c.o	fa768db619e3b574
-1	17	1651585228102897711	CMakeFiles/libreTwitter.dir/tweetManage.c.o	39555aec10d174b6
-0	94	1651585254077146145	CMakeFiles/libreTwitter.dir/test.c.o	bcb4e3b653baf6e6
+1	57	1651585201027000965	CMakeFiles/libreTwitter.dir/hash.c.o	65cb59d018529c7d
+1	61	1651585201030922454	CMakeFiles/libreTwitter.dir/linkedList.c.o	ac71d2df0e23ca15
+2	238	1651761714211069230	CMakeFiles/libreTwitter.dir/main.c.o	3554533358d55a2d
+1	145	1651761771326766747	CMakeFiles/libreTwitter.dir/tweetManage.c.o	39555aec10d174b6
+1	95	1651762003103310413	CMakeFiles/libreTwitter.dir/main.c.o	3554533358d55a2d
+95	137	1651762003145252089	libreTwitter	13f09cd45dc0d37f

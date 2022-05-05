@@ -4,6 +4,7 @@
         "string.h": "c",
         "stdlib.h": "c",
         "structures.h": "c",
-        "managetweet.h": "c"
+        "managetweet.h": "c",
+        "hash.h": "c"
     }
 }

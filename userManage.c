@@ -16,6 +16,7 @@ char * generateUsername(){
     FILE *textfile;
     char *username[25];
     char line[50];
+    char ch[25];
     textfile = fopen("usernames.txt","r");
     if(textfile == NULL)
       perror("FNF error");
@@ -27,8 +28,12 @@ char * generateUsername(){
       if(count == num){
         printf("%s\n",line);
 
-        username[] = line;
-        return username[];
+        int i = 0;
+
+        while (fgetc(ch, 25, textfile)){
+            username[i] = ch;
+            i++;
+        }
 
         break;
       }

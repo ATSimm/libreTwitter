@@ -3,7 +3,7 @@
 
 
 void postTweet(int id, char *content, char *authorName);
-void showFeed(bool **followArray, int currentUser, int numUsers);
+void showFeed(struct user *currentPoster, int numUsers);
 
 
 #endif //LIBRETWITTER_MANAGETWEET_H

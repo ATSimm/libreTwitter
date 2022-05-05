@@ -4,8 +4,6 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include "manageUser.h"
-#include "manageUser.c"
-#include "manageTweet.c"
 #include "manageTweet.h"
 #include "structures.h"
 int numUsers;
@@ -96,7 +94,7 @@ int main(){
           endTurnEvent = true;
       }
       else if(strcmp(input,"/viewfeed") == 0){
-        showFeed(nameUser[currentUser],numUsers);
+        showFeed(&nameUser[currentUser],numUsers);
       }
       else if(strcmp(input,"/endtwitter") == 0){
         endOfTwt = true;

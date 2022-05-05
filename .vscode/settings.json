@@ -3,6 +3,7 @@
     "files.associations": {
         "string.h": "c",
         "stdlib.h": "c",
-        "structures.h": "c"
+        "structures.h": "c",
+        "managetweet.h": "c"
     }
 }

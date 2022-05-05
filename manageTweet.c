@@ -1,10 +1,11 @@
-#include "manageTweet.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include "hash.h"
 #include "structures.h"
+
+
 struct node{
     char time[35];
     int authorID;
@@ -35,7 +36,7 @@ void postTweet(int id, char *content, char *authorName){
     start = t;
 }
 
-void showFeed(struct user currentPoster, int numUsers){
+void showFeed(struct user *currentPoster, int numUsers){
 
     struct node *t ;
     t = start;
@@ -47,7 +48,7 @@ void showFeed(struct user currentPoster, int numUsers){
     int count = 0;
     while (t->next != NULL || count == 10) {
         for(int i = 0; i < numUsers; i++){
-            if(currentPoster.following[i] && t->authorID == i){
+            if(currentPoster->following[i] && t->authorID == i){
                 printf("%s ", t->time);
                 printf("%s ", t->authorName);
                 printf("%s\n", t->content);
@@ -58,7 +59,7 @@ void showFeed(struct user currentPoster, int numUsers){
     }
     if(count < 10){
         for(int i = 0; i < numUsers; i++){
-            if(currentPoster.following[i] && t->authorID == i){
+            if(currentPoster->following[i] && t->authorID == i){
                 printf("%s ", t->time);
                 printf("%s ", t->authorName);
                 printf("%s\n", t->content);

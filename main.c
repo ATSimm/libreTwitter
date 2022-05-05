@@ -58,23 +58,14 @@ int main(){
           printf("\t\t/endTurn - Ends your turn.\n");
           printf("\t\t/endTwitter - End application.\n");
       }
-      else if(strcmp(input,"/follow") == 0){   //replace with function from manageUser
-          printf("Enter the number of the user you would like to follow.\n");
-          int checker = 0;
-          for(int i = 0; i < numUsers ; i++){
-            if(nameUser[i].username[0] != '\0' && i != currentUser){
-              printf("(%d) %s\n",i,nameUser[i].username);
-              checker = 1;
-            }
-          }
-          if(checker == 0){
-            printf("No users to follow.\n");
-          }else{
-            int followAdd;
-            scanf("%d",&followAdd);
-            nameUser[currentUser].following[followAdd] = 1;
-          }
+      else if(strcmp(input,"/follow") == 0){
+        follow(currentUser);
       }
+
+      else if(strcmp(input,"/unfollow") == 0){
+        unfollow(currentUser);
+      }
+
       else if(strcmp(input,"/tweet") == 0){
           char content[280];
           gets(content);

@@ -13,7 +13,7 @@ int getNumUsers(){
     return numUsers;
 }
 
-void follow(numUsers){
+void follow(currentUser){
     printf("Enter the number of the user you would like to follow.\n");
     int checker = 0;
     for(int i = 0; i < numUsers; i++){
@@ -33,7 +33,7 @@ void follow(numUsers){
     }
 }
 
-void unfollow(){
+void unfollow(currentUser){
     printf("Enter the number of user you would like to unfollow.\n");
     int checker = 0;
     for(int i = 0; i < numUser; i++){
@@ -49,6 +49,6 @@ void unfollow(){
     else{
         int followRemove;
         scanf("%d", &followRemove);
-        nameUser[currentUser.following[followAdd] = 0;
+        nameUser[currentUser.following[followRemove] = 0;
     }
 }

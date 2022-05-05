@@ -12,36 +12,3 @@ int getNumUsers(){
     return numUsers;
 }
 
-char * generateUsername(){
-    FILE *textfile;
-    char username[25];
-    char line[50];
-    char ch;
-    textfile = fopen("usernames.txt","r");
-    if(textfile == NULL)
-      perror("FNF error");
-      srand(time(NULL));
-    int num = rand() % 86649; //Make this random.
-    int count = 0;
-    while(fgets(line, 50, textfile)){
-        break;
-      if(count == num){
-        printf("%s\n",line);
-
-        int i = 0;
-
-        while ((ch = fgetc(textfile)) != '\n'){
-            username[i] = ch;
-            i++;
-        }
-
-        break;
-      }
-      else{
-        count++;
-      }
-    }
-    fclose(textfile);
-    char *rtnPtr = username;
-    return rtnPtr;
-}

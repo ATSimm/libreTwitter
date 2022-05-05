@@ -18,13 +18,11 @@ int main(){
   printf("   ╚═╝    ╚══╝╚══╝ ╚══════╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝ \n");
 
 
-  printf("Tweeter.\n\n\n");
   printf("\nBy Aiden Simmons and Rohan Bhattacharya\n\n\n\nPress enter to continue.\n");
-  /* char pl;
+  char pl;
   scanf("%c",&pl);
 
-  numUsers = getNumUsers(); */
-  numUsers = 5;
+  numUsers = getNumUsers();
   char username[numUsers][25];
   bool endOfTwt = false;
   int counter = 0;
@@ -34,11 +32,18 @@ int main(){
   for(int i = 0; i< numUsers; i++){
     followArr[i][i] = true;
   }
-
+  for(int i = 0 ; i < numUsers; i++){
+    for(int j = 0 ; j < 25 ; j++){
+      username[i][j] = '\0';
+    }
+  }
   while(!endOfTwt){
     int currentUser = counter % numUsers;
-    if(strcmp(username[currentUser],"") == 0){
-      strcpy(username[currentUser],generateUsername());
+    printf("%c",username[currentUser][0]);
+    if(username[currentUser][0] == '\0'){
+      char name[25];
+      scanf("%s",name);
+      strcpy(username[currentUser],name);
     }
     printf("\nWelcome %s. Type /help for a list of commands.\n",username[currentUser]);
     counter++;

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include <stdbool.h>
 #include "hash.h"
 #include "manageUser.h"
@@ -46,7 +47,7 @@ void showFeed(struct user currentPoster, int numUsers){
     int count = 0;
     while (t->next != NULL || count == 10) { //if empty or more than 10
         for(int i = 0; i < numUsers; i++){ //loop through all users
-            if(currentPoster->following[i] == 1 && t->authorID == i){ //if following
+            if(currentPoster.following[i] == 1 && t->authorID == i){ //if following
                 printf("%s ", t->time); //show tweet
                 printf("%s ", t->authorName);
                 printf("%s\n", t->content);
@@ -57,7 +58,7 @@ void showFeed(struct user currentPoster, int numUsers){
     }
     if(count < 10){ //print last element
         for(int i = 0; i < numUsers; i++){
-            if(currentPoster->following[i] == 1 && t->authorID == i){
+            if(currentPoster.following[i] == 1 && t->authorID == i){
                 printf("%s ", t->time);
                 printf("%s ", t->authorName);
                 printf("%s\n", t->content);

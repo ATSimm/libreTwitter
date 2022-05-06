@@ -59,16 +59,48 @@ int main(){
           printf("\t\t/endTwitter - End application.\n");
       }
       else if(strcmp(input,"/follow") == 0){
-        follow(nameUser,numUsers,currentUser);
+        printf("Enter the number of the user you would like to follow.\n");
+        int checker = 0;
+        for(int i = 0; i < numUsers; i++){ //loop till end of list
+        if(nameUser[i].username[0] != '\0' && i != currentUser){ //if not empty and not current user
+            printf("(%d) %s\n",i,nameUser[i].username); //print available user
+            checker = 1;//user was found
+            }
+        }
+        if(checker == 0){ //if user not found
+            printf("No users to follow.\n");
+        }
+
+        else{
+            int followAdd;
+            scanf("%d",&followAdd);//scan index
+            nameUser[currentUser].following[followAdd] = 1;//follow user
+        }
       }
 
       else if(strcmp(input,"/unfollow") == 0){
-        unfollow(nameUser,numUsers,currentUser);
+        printf("Enter the number of the user you would like to unfollow.\n");
+        int checker = 0;
+        for(int i = 0; i < numUsers; i++){ //loop till end of list
+            if(nameUser[i].username[0] != '\0' && i != currentUser){ //if not empty and not current user
+                printf("(%d) %s\n",i,nameUser[i].username); //print available user
+                checker = 1;//user was found
+            }
+        }
+        if(checker == 0){ //if user not found
+            printf("No users to unfollow.\n");
+        }
+
+        else{
+            int followAdd;
+            scanf("%d",&followAdd);//scan index
+            nameUser[currentUser].following[followAdd] = 0;//unfollow user
+        }
       }
 
       else if(strcmp(input,"/tweet") == 0){
           char content[280];
-          gets(content);
+          fgets(content,280,stdin);
           postTweet(currentUser, content, nameUser[currentUser].username);
       }
       else if(strcmp(input,"/showfollowing") == 0){

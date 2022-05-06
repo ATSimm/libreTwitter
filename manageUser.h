@@ -6,7 +6,4 @@ typedef struct user{
   int following[MAX_USERS];
 }user;
 int getNumUsers();
-void follow(struct user nameUser, int numUsers, int currentUser);
-void unfollow(struct user nameUser, int numUsers, int currentUser);
-
 #endif //LIBRETWITTER_MANAGEUSER_H

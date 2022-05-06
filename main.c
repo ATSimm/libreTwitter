@@ -59,17 +59,17 @@ int main(){
           printf("\t\t/endTwitter - End application.\n");
       }
       else if(strcmp(input,"/follow") == 0){
-        follow(currentUser);
+        follow(nameUser,numUsers,currentUser);
       }
 
       else if(strcmp(input,"/unfollow") == 0){
-        unfollow(currentUser);
+        unfollow(nameUser,numUsers,currentUser);
       }
 
       else if(strcmp(input,"/tweet") == 0){
           char content[280];
           gets(content);
-          postTweet(currentUser,content,nameUser[currentUser].username);
+          postTweet(currentUser, content, nameUser[currentUser].username);
       }
       else if(strcmp(input,"/showfollowing") == 0){
           for(int i = 0; i < numUsers; i++){
@@ -86,31 +86,11 @@ int main(){
           endTurnEvent = true;
       }
       else if(strcmp(input,"/viewfeed") == 0){
-        showFeed(nameUser[currentUser],numUsers);
+        showFeed(nameUser, numUsers);
       }
       else if(strcmp(input,"/endtwitter") == 0){
         endOfTwt = true;
       }
     }
-
-
-   /*  if(user wants to follow){
-      //print type the number of the user you want to follow
-      for(int i = 0; i< numUsers; i++){
-        if(strcmp(username[i],"") == 0){continue;}
-        else{printf("(%d)%s\n",i,username[i]);}
-      }
-      //scan their input
-      int input;
-      followArr[currentUser][input] = true; //copy this but false for unfollow
-    }
-    if(user wants to tweet){
-      char content[280] = "their content";
-      insert(currentUser, content, username[currentUser]);
-      printf("DONE");
-    }
-    if(user wants to delete){
-      followArr[currentUser][currentUser] = false;
-    } */
   }
 }

@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-#include "manageTweet.h"
+
 
 int getNumUsers(){
     int numUsers;

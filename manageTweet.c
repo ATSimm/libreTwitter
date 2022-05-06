@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "hash.h"
-#include "structures.h"
+#include "manageUser.h"
 struct node{
     char time[35];
     int authorID;

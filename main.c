@@ -86,7 +86,7 @@ int main(){
           endTurnEvent = true;
       }
       else if(strcmp(input,"/viewfeed") == 0){
-        showFeed(nameUser, numUsers);
+        showFeed(nameUser[currentUser], numUsers);
       }
       else if(strcmp(input,"/endtwitter") == 0){
         endOfTwt = true;

@@ -5,6 +5,8 @@
         "stdlib.h": "c",
         "structures.h": "c",
         "managetweet.h": "c",
-        "hash.h": "c"
+        "hash.h": "c",
+        "stdbool.h": "c",
+        "__node_handle": "c"
     }
 }

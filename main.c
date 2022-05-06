@@ -1,13 +1,89 @@
+//#define MAX_USERS 100
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdbool.h>
-#include "manageUser.h"
-#include "manageTweet.h"
-
+#include <time.h>
+#include "hash.c"
 
 int numUsers;
+typedef struct user{
+  char username[25];
+  int following[100];//should be MAX_USERS
+}user;
+int getNumUsers();
+user nameUser[50];
+struct node{
+    char time[35];
+    int authorID;
+    char authorName[25];
+    char content[280];
+    struct node *next;
+};
+
+struct node *start = NULL; //start of list
+
+int counter = 0; //Count number of elements
+
+void postTweet(int id, char *content, char *authorName){
+    struct node *t; //temp node
+    t = (struct node*)malloc(sizeof(struct node)); //define size
+    long p = hash(); //time stamp
+    strcpy(t->time,ctime(&p)); //conversion to readable timestamp
+    t->authorID = id; //assign passed id to author value
+    strcpy(t->content,content); //assign content to struct
+    strcpy(t->authorName,authorName); //author name assignment
+    counter++;//add item to count element added
+    if (start == NULL) { //if first element
+        start = t;
+        start->next = NULL; //make next null to make space for start
+        return;
+    }
+    t->next = start; //assign the pointer for next value to start
+    start = t; //start is temp
+}
+
+void showFeed(int currentUser, int numUsers){
+
+    struct node *t ; //temp node
+    t = start;
+    if (t == NULL) { //if empty
+        printf("No tweets.\n");
+        return ;
+    }
+
+    int count = 0;
+    while (t->next != NULL || count == 10) { //if empty or more than 10
+        for(int i = 0; i < numUsers; i++){ //loop through all users
+            if(nameUser[currentUser].following[i] == 1 && t->authorID == i){ //if following
+                printf("%s ", t->time); //show tweet
+                printf("%s Said:\n ", t->authorName);
+                printf("%s\n", t->content);
+                count++;
+            }
+        }
+        t = t->next; //next
+    }
+    if(count < 10){ //print last element
+        for(int i = 0; i < numUsers; i++){
+            if(nameUser[currentUser].following[i] == 1 && t->authorID == i){ //if following
+                printf("%s ", t->time);
+                printf("%s Said:\n ", t->authorName);
+                printf("%s\n", t->content);
+            }
+        }
+    }
+}
+
+
+int getNumUsers(){
+    int numUsers;
+    printf("How many users would you like to have?\n");
+    scanf("%d",&numUsers);//scan num users
+    return numUsers; //return
+}
 
 int main(){
   printf("████████╗██╗    ██╗███████╗███████╗████████╗███████╗██████╗ \n");
@@ -22,9 +98,8 @@ int main(){
   char pl;
   scanf("%c",&pl);
 
-  numUsers = 3;//getNumUsers();
+  numUsers = getNumUsers();
 
-  user nameUser[numUsers];
 
   bool endOfTwt = false;
   int counter = 0;
@@ -51,10 +126,10 @@ int main(){
       if(strcmp(input,"/help") == 0){
           printf("\t\t/help - Displays a list of commands.\n");
           printf("\t\t/follow - Follow a user and see their tweets in your feed.\n");
+          printf("\t\t/unfollow - Unollow a user to remover their tweets from your feed.\n");
           printf("\t\t/showFollowing - Shows who you are following.\n");
           printf("\t\t/tweet - Tweet to your feed.\n");
           printf("\t\t/viewFeed - View your feed.\n");
-          printf("\t\t/delete - Delete your account.\n");
           printf("\t\t/endTurn - Ends your turn.\n");
           printf("\t\t/endTwitter - End application.\n");
       }
@@ -75,6 +150,7 @@ int main(){
             int followAdd;
             scanf("%d",&followAdd);//scan index
             nameUser[currentUser].following[followAdd] = 1;//follow user
+            printf("You are now following %s\n",nameUser[followAdd]);
         }
       }
 
@@ -95,30 +171,35 @@ int main(){
             int followAdd;
             scanf("%d",&followAdd);//scan index
             nameUser[currentUser].following[followAdd] = 0;//unfollow user
+            printf("You are no longer following %s\n",nameUser[followAdd]);
         }
       }
 
       else if(strcmp(input,"/tweet") == 0){
-          char content[280];
-          fgets(content,280,stdin);
-          //postTweet(currentUser, content, nameUser[currentUser].username);
+          char sendTo[280];
+          fflush(stdin);
+          fgets(sendTo,280,stdin);
+          postTweet(currentUser, sendTo, nameUser[currentUser].username);
+          printf("Just sent your tweet:\n%s",sendTo);
       }
       else if(strcmp(input,"/showfollowing") == 0){
+        int checker = 0;
           for(int i = 0; i < numUsers; i++){
             if(nameUser[currentUser].following[i] == 1 && i != currentUser){
               printf("%s\n",nameUser[i].username);
+              checker = 1;
             }
           }
-      }
-      else if(strcmp(input,"/delete") == 0){
-          printf("");
+          if(checker == 0){
+            printf("You are not following anyone!\n");
+          }
       }
       else if(strcmp(input,"/endturn") == 0){
           counter++;
           endTurnEvent = true;
       }
       else if(strcmp(input,"/viewfeed") == 0){
-        //showFeed(nameUser[currentUser], numUsers);
+        showFeed(currentUser, numUsers);
       }
       else if(strcmp(input,"/endtwitter") == 0){
         endOfTwt = true;
@@ -126,3 +207,4 @@ int main(){
     }
   }
 }
+

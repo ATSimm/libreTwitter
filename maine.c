@@ -1,13 +1,99 @@
+#define MAX_USERS 100
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdbool.h>
-#include "manageUser.h"
-#include "manageTweet.h"
+#include <time.h>
 
 
 int numUsers;
+
+void postTweet(int id, char *content, char *authorName);
+void showFeed(struct user currentPoster, int numUsers);
+
+
+typedef struct user{
+  char username[25];
+  int following[MAX_USERS];
+}user;
+int getNumUsers();
+
+struct node{
+    char time[35];
+    int authorID;
+    char authorName[25];
+    char content[280];
+    struct node *next;
+};
+
+struct node *start = NULL; //start of list
+
+int counter = 0; //Count number of elements
+
+void postTweet(int id, char *content, char *authorName){
+    struct node *t; //temp node
+    t = (struct node*)malloc(sizeof(struct node)); //define size
+    long p = hash(); //time stamp
+    strcpy(t->time,ctime(&p)); //conversion to readable timestamp
+    t->authorID = id; //assign passed id to author value
+    strcpy(t->content,content); //assign content to struct
+    strcpy(t->authorName,authorName); //author name assignment
+    counter++;//add item to count element added
+    if (start == NULL) { //if first element
+        start = t;
+        start->next = NULL; //make next null to make space for start
+        return;
+    }
+    t->next = start; //assign the pointer for next value to start
+    start = t; //start is temp
+}
+
+void showFeed(struct user currentPoster, int numUsers){
+
+    struct node *t ; //temp node
+    t = start;
+    if (t == NULL) { //if empty
+        printf("No tweets.\n");
+        return ;
+    }
+
+    int count = 0;
+    while (t->next != NULL || count == 10) { //if empty or more than 10
+        for(int i = 0; i < numUsers; i++){ //loop through all users
+            if(currentPoster.following[i] == 1 && t->authorID == i){ //if following
+                printf("%s ", t->time); //show tweet
+                printf("%s ", t->authorName);
+                printf("%s\n", t->content);
+                count++;
+            }
+        }
+        t = t->next; //next
+    }
+    if(count < 10){ //print last element
+        for(int i = 0; i < numUsers; i++){
+            if(currentPoster.following[i] == 1 && t->authorID == i){
+                printf("%s ", t->time);
+                printf("%s ", t->authorName);
+                printf("%s\n", t->content);
+            }
+        }
+    }
+}
+
+
+int getNumUsers(){
+    int numUsers;
+    printf("How many users would you like to have?\n");
+    scanf("%d",&numUsers);//scan num users
+    return numUsers; //return
+}
+
+
+
+
+
 
 int main(){
   printf("████████╗██╗    ██╗███████╗███████╗████████╗███████╗██████╗ \n");
@@ -22,7 +108,7 @@ int main(){
   char pl;
   scanf("%c",&pl);
 
-  numUsers = 3;//getNumUsers();
+  numUsers = getNumUsers();
 
   user nameUser[numUsers];
 
@@ -101,7 +187,7 @@ int main(){
       else if(strcmp(input,"/tweet") == 0){
           char content[280];
           fgets(content,280,stdin);
-          //postTweet(currentUser, content, nameUser[currentUser].username);
+          postTweet(currentUser, content, nameUser[currentUser].username);
       }
       else if(strcmp(input,"/showfollowing") == 0){
           for(int i = 0; i < numUsers; i++){
@@ -118,7 +204,7 @@ int main(){
           endTurnEvent = true;
       }
       else if(strcmp(input,"/viewfeed") == 0){
-        //showFeed(nameUser[currentUser], numUsers);
+        showFeed(nameUser[currentUser], numUsers);
       }
       else if(strcmp(input,"/endtwitter") == 0){
         endOfTwt = true;

@@ -1,4 +1,4 @@
-#define MAX_USERS 100
+//#define MAX_USERS 100
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,7 +11,7 @@
 int numUsers;
 typedef struct user{
   char username[25];
-  int following[MAX_USERS];
+  int following[100];//should be MAX_USERS
 }user;
 int getNumUsers();
 user nameUser[50];

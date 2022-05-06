@@ -11,10 +11,11 @@
 int numUsers;
 typedef struct user{
   char username[25];
-  int following[100];//should be MAX_USERS
+  int following[100];
 }user;
 int getNumUsers();
-user nameUser[50];
+user nameUser[100];
+
 struct node{
     char time[35];
     int authorID;
@@ -86,6 +87,9 @@ int getNumUsers(){
 }
 
 int main(){
+  for(int i = 0 ; i < 100 ; i++){
+  nameUser[i].following[i] = 1;
+}
   printf("████████╗██╗    ██╗███████╗███████╗████████╗███████╗██████╗ \n");
   printf("╚══██╔══╝██║    ██║██╔════╝██╔════╝╚══██╔══╝██╔════╝██╔══██╗ \n");
   printf("   ██║   ██║ █╗ ██║█████╗  █████╗     ██║   █████╗  ██████╔╝ \n");
@@ -150,7 +154,7 @@ int main(){
             int followAdd;
             scanf("%d",&followAdd);//scan index
             nameUser[currentUser].following[followAdd] = 1;//follow user
-            printf("You are now following %s\n",nameUser[followAdd]);
+            printf("You are now following %s\n",nameUser[followAdd].username);
         }
       }
 
@@ -171,7 +175,7 @@ int main(){
             int followAdd;
             scanf("%d",&followAdd);//scan index
             nameUser[currentUser].following[followAdd] = 0;//unfollow user
-            printf("You are no longer following %s\n",nameUser[followAdd]);
+            printf("You are no longer following %s\n",nameUser[followAdd].username);
         }
       }
 
@@ -203,8 +207,8 @@ int main(){
       }
       else if(strcmp(input,"/endtwitter") == 0){
         endOfTwt = true;
+        endTurnEvent = true;
       }
     }
   }
 }
-

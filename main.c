@@ -101,7 +101,6 @@ int main(){
   numUsers = getNumUsers();
 
 
-
   bool endOfTwt = false;
   int counter = 0;
   for(int i = 0; i < numUsers; i++){
@@ -131,7 +130,6 @@ int main(){
           printf("\t\t/showFollowing - Shows who you are following.\n");
           printf("\t\t/tweet - Tweet to your feed.\n");
           printf("\t\t/viewFeed - View your feed.\n");
-          printf("\t\t/delete - Delete your account.\n");
           printf("\t\t/endTurn - Ends your turn.\n");
           printf("\t\t/endTwitter - End application.\n");
       }
@@ -195,9 +193,6 @@ int main(){
           if(checker == 0){
             printf("You are not following anyone!\n");
           }
-      }
-      else if(strcmp(input,"/delete") == 0){
-          printf("");
       }
       else if(strcmp(input,"/endturn") == 0){
           counter++;

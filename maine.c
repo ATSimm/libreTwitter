@@ -127,6 +127,7 @@ int main(){
       if(strcmp(input,"/help") == 0){
           printf("\t\t/help - Displays a list of commands.\n");
           printf("\t\t/follow - Follow a user and see their tweets in your feed.\n");
+          printf("\t\t/unfollow - Unollow a user to remover their tweets from your feed.\n");
           printf("\t\t/showFollowing - Shows who you are following.\n");
           printf("\t\t/tweet - Tweet to your feed.\n");
           printf("\t\t/viewFeed - View your feed.\n");
@@ -151,6 +152,7 @@ int main(){
             int followAdd;
             scanf("%d",&followAdd);//scan index
             nameUser[currentUser].following[followAdd] = 1;//follow user
+            printf("You are now following %s\n",nameUser[followAdd]);
         }
       }
 
@@ -171,21 +173,27 @@ int main(){
             int followAdd;
             scanf("%d",&followAdd);//scan index
             nameUser[currentUser].following[followAdd] = 0;//unfollow user
+            printf("You are no longer following %s\n",nameUser[followAdd]);
         }
       }
 
       else if(strcmp(input,"/tweet") == 0){
-
           char sendTo[280];
           fflush(stdin);
           fgets(sendTo,280,stdin);
           postTweet(currentUser, sendTo, nameUser[currentUser].username);
+          printf("Just sent your tweet:\n%s",sendTo);
       }
       else if(strcmp(input,"/showfollowing") == 0){
+        int checker = 0;
           for(int i = 0; i < numUsers; i++){
             if(nameUser[currentUser].following[i] == 1 && i != currentUser){
               printf("%s\n",nameUser[i].username);
+              checker = 1;
             }
+          }
+          if(checker == 0){
+            printf("You are not following anyone!\n");
           }
       }
       else if(strcmp(input,"/delete") == 0){
